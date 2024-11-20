@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title><%=title%></title>
+<link href="/style/css/style2.css" type="text/css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<body>
+<header>
+	<h2 class="mainTitle"><%=title%></h2>
+	<form class="search" name="frm" action="/board/boardList.aws" method="get">
+		<select name="searchType">
+			<option value="subject">제목</option>
+			<option value="writer">작성자</option>
+		</select>
+		<input type="text" name="keyword">
+		<button type="submit" class="btn">검색</button>
+	</form>
+</header>
+
+<section>	
+	<table class="listTable">
+		<colgroup>
+			<col width="8%">
+			<col>
+			<col width="10%">
+			<col width="8%">
+			<col width="8%">
+			<col width="18%">
+		</colgroup>
+		<tr>
+			<th>No</th>
+			<th>제목</th>
+			<th>작성자</th>
+			<th>조회</th>
+			<th>추천</th>
+			<th>날짜</th>
+		</tr>
+		<% for(let i=0; i<data.length; i++) { %>
+		<tr>
+			<td><%= i %></td>
+			<td class="title"><a href="/board/boardContents.aws?bidx=">   <!-- ${bv.bidx} -->
+				<!-- <c:forEach var="i" begin="1" end="${bv.level_}" step="1">
+					<c:if test="${i > 1}">
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					</c:if>
+					<c:if test="${i == bv.level_}">
+						└ &nbsp;
+					</c:if>
+				</c:forEach> -->
+				<%= data[i].subject %>
+			</a></td>
+			<td><%= data[i].writer %></td>
+			<td class="viewcnt"><%= data[i].viewcnt %></td>
+			<td class="recom"><%= data[i].recom %></td>
+			<td><%= data[i].writeday %></td>
+		</tr>
+		<% } %>
+	</table>
+	
+	<div class="btnBox">
+		<a class="btn aBtn" href="/board/boardWrite.aws">글쓰기</a>
+	</div>
+	
+	<!-- <div class="page">
+		<c:set var="queryParam" value="keyword=${requestScope.pm.scri.keyword}&searchType=${requestScope.pm.scri.searchType}"></c:set>	
+ 		<ul>
+ 		<c:if test="${requestScope.pm.prev == true}">
+			<li><a href="/board/boardList.aws?page=${requestScope.pm.startPage - 1}&${queryParam}">◀</a></li>
+		</c:if>
+			
+		<c:forEach var="i" begin="${requestScope.pm.startPage}" end="${requestScope.pm.endPage}" step="1">
+			<li<c:if test="${i == requestScope.pm.scri.page}"> class="on"</c:if>>
+			<a href="/board/boardList.aws?page=${i}&${queryParam}">${i}</a></li>
+		</c:forEach>
+		
+ 		<c:if test="${requestScope.pm.next == true && requestScope.pm.endPage > 0}">  && requestScope.pm.endPage > 0 : 게시물이 0개일 경우 endPage가 0이 됨. 이때는 버튼이 없어야 함 
+			<li><a href="/board/boardList.aws?page=${requestScope.pm.endPage + 1}&${queryParam}">▶</a></li>
+		</c:if>
+		</ul>
+	</div> -->
+</section>
+
+</body>
+</html>

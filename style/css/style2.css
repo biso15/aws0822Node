@@ -1,0 +1,71 @@
+@charset "UTF-8";
+
+* { line-height: 1.5; font-size: 12px; margin: 0; padding: 0; }
+body { width: 800px; margin: 0 auto; padding-bottom: 20px; }
+a { text-decoration: none; color: inherit; }
+select { cursor: pointer; border-color: lightgray; height: 20px; width: 70px; }
+textarea { border-color: lightgray; padding: 0 5px; }
+input { border: 1px solid lightgray; padding: 0 5px; }
+input[type="file"] { display: none; }
+ul { list-style: none; }
+img { vertical-align: middle; }
+
+
+/* header */
+header { border-bottom: 2px solid orange; }
+header .mainTitle { font-size: 15px; padding: 10px 50px 5px; }
+header .search { text-align: right; margin-bottom: 10px; }
+
+
+/* table */
+table { width: 100%; border-collapse: collapse; }
+table th, table td { padding: 5px 10px; }
+
+.listTable th, .listTable td { text-align: center; border-bottom: 1px solid lightgray; }
+.listTable .title { text-align: left; }
+.listTable .title a { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 364px; 
+	display: inline-block; }
+
+.writeTable th, td { border-bottom: 1px solid lightgray; }
+.writeTable input[type="text"], .writeTable textarea { width: 80%; }
+.writeTable input[name="writer"] { width: auto; }
+.writeTable input[type="text"].fileInputName { width: auto; }
+
+.replyTable th { background: #dfdfdf; }
+.replyTable th, .replyTable td { text-align: center; border-bottom: 1px solid lightgray; }
+.replyTable .content  { text-align: left; }
+
+
+/* button */
+.btn { background: black; color: white; border-radius: 3px; border: none; width: 50px; height: 20px; 
+	cursor: pointer; display: inline-block; vertical-align: middle; }
+.aBtn {	text-align: center; line-height: 20px; }
+.labelBtn { width: 60px; text-align: center; }
+.moreBtn { margin-top: 10px; float: right; }
+
+.btnBox { text-align:right; margin-top: 10px; }
+.btnBox .btn { display: inline-block; width: 45px; }
+
+
+/* paging */
+.page { margin: 50px 0 20px; text-align: center; }
+.page ul { display: inline-block; }
+.page li { display: inline-block; }
+.page li a { display: inline-block; width: 20px; height: 20px; cursor: pointer; }
+.page .on { background: black; color: white; }
+
+
+/* detail */
+.detailContents { border-bottom: 1px solid black; padding: 10px; }
+.detailContents .contentTitle { float: left; }
+.detailContents .detailTitle .btn { float: right; width: 60px; }
+.detailContents .write { clear: both; border-bottom: 1px solid black; padding-bottom: 10px; }
+.detailContents .content { padding: 20px 0; }
+.detailContents .fileImage { max-width: 100%; margin-bottom: 5px; }
+.detailContents .fileDown:hover { color: orange; cursor: pointer; }
+
+.commentContents form[name="frm"], .commentContents #moreBtn { margin-bottom: 40px; }
+.commentContents .commentWriter { border: 1px solid lightgray; display: inline-block; padding: 0 50px; width: 100px; }
+.commentContents input { width: 600px; height: 25px; float: left; }
+.commentContents .replyBtn { background: #555; width: 188px; float: left; border: none; cursor: pointer;
+	color: white; height: 27px; }
